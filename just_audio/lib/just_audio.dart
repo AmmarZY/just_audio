@@ -851,6 +851,7 @@ class AudioPlayer {
       checkInterruption();
       source._shuffle(initialIndex: initialSeekValues?.index ?? 0);
       _broadcastSequence();
+      _proxy.start();
       _durationFuture = platform
           .load(LoadRequest(
             audioSourceMessage: source._toMessage(),
